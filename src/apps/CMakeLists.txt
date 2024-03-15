@@ -8,7 +8,7 @@ function(add_application _target _source_files)
     endif()
 
     add_executable(${_target} ${_source_files} inc/application.h inc/plot_options.h ${SWIG_VERSION_INFO})
-    target_link_libraries(${_target} ${INTEROP_LIB})
+    target_link_libraries(${_target} ${INTEROP_LIB} -static)
 
     if(COMPILER_IS_GNUCC_OR_CLANG)
         set_target_properties(${_target} PROPERTIES COMPILE_FLAGS "${CXX_PEDANTIC_FLAG}" )
